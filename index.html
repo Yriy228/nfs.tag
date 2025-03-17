@@ -42,9 +42,38 @@
             color: black;
             border: 2px solid black;
         }
+        #popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            font-size: 24px;
+        }
+        #play-btn {
+            background: red;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
+
+    <div id="popup">
+        <p>Натисніть кнопку, щоб увімкнути звук</p>
+        <button id="play-btn">🔊 Увімкнути звук</button>
+    </div>
+
     <h1>Мої контакти</h1>
     <a class="button telegram">Telegram</a>
     <a class="button instagram">Instagram</a>
@@ -54,12 +83,12 @@
     </audio>
 
     <script>
-        document.body.addEventListener("click", function() {
+        document.getElementById("play-btn").addEventListener("click", function() {
             let audio = document.getElementById("audio");
-            if (audio.paused) {
-                audio.play();
-            }
+            audio.play();
+            document.getElementById("popup").style.display = "none";
         });
     </script>
+
 </body>
 </html>
