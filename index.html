@@ -44,7 +44,7 @@
             border: 2px solid black;
         }
         #invisible-button {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -69,11 +69,20 @@
     </audio>
 
     <script>
-        document.getElementById("invisible-button").addEventListener("click", function() {
+        document.addEventListener("DOMContentLoaded", function() {
             let audio = document.getElementById("audio");
-            if (audio.paused) {
-                audio.play();
+            let button = document.getElementById("invisible-button");
+
+            function playAudio() {
+                audio.play().then(() => {
+                    console.log("Звук відтворюється");
+                }).catch(error => {
+                    console.log("Помилка запуску звуку:", error);
+                });
             }
+
+            button.addEventListener("click", playAudio);
+            document.body.addEventListener("click", playAudio);
         });
     </script>
 
