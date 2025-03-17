@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мої контакти</title>
+    <style>
+        body {
+            background-color: orange;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+        }
+        h1 {
+            position: absolute;
+            top: 20px;
+            font-size: 28px;
+            color: white;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            margin: 10px;
+            padding: 15px;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .telegram {
+            background-color: blue;
+            color: white;
+        }
+        .instagram {
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Мої контакти</h1>
+    <a class="button telegram">Telegram</a>
+    <a class="button instagram">Instagram</a>
+
+    <audio id="audio" loop>
+        <source src="sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.body.addEventListener("click", function() {
+            let audio = document.getElementById("audio");
+            if (audio.paused) {
+                audio.play();
+            }
+        });
+    </script>
+</body>
+</html>
